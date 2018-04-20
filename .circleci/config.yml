@@ -47,9 +47,6 @@ jobs:
       - run:
           name: Build the Jekyll site
           command: bundle exec jekyll build
-      - store_artifacts:
-          path: build-reports
-          destination: build-reports
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -63,9 +60,6 @@ jobs:
       - run:
           name: Deploy to Github
           command: bash scripts/deploy/github-pages.sh
-      - store_artifacts:
-          path: build-reports
-          destination: build-reports
       - persist_to_workspace:
           root: ~/repo
           paths:
