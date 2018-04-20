@@ -41,9 +41,11 @@ jobs:
           key: test-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
           name: Install Ruby dependencies
-          command: bundle check || bundle install
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
       - save_cache:
           key: test-dependencies-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
       - run:
           name: Build the Jekyll site
           command: bundle exec jekyll build
@@ -70,9 +72,6 @@ workflows:
     jobs:
       - test
   build-deploy:
-    filters:
-      branches:
-        only: develop
     jobs:
       - build
       - deploy:
