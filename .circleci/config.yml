@@ -72,11 +72,11 @@ workflows:
     jobs:
       - test
   build-deploy:
-    filters:
-      branches:
-        only: develop
     jobs:
       - build
       - deploy:
           requires:
             - build
+          filters:
+            branches:
+              only: develop
