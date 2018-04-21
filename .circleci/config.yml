@@ -18,9 +18,9 @@ jobs:
             . venv/bin/activate
             pip install -r scripts/requirements.txt
       - save_cache:
+          key: test-dependencies-{{ checksum "scripts/requirements.txt" }}
           paths:
             - ./venv
-          key: test-dependencies-{{ checksum "scripts/requirements.txt" }}
       - run:
           name: check metadata
           command: |
