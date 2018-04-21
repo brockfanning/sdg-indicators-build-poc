@@ -7,7 +7,7 @@ then
   git clone $CIRCLE_REPOSITORY_URL out
 
   cd out
-  git checkout develop || git checkout --orphan develop
+  git checkout gh-pages || git checkout --orphan gh-pages
   git rm -rf .
   cd ..
 
