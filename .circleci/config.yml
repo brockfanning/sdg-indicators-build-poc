@@ -31,7 +31,7 @@ jobs:
           destination: test-reports
 
   build:
-    # The build job compiles the Jekyll site, so Ruby is needed.
+    # The build job does compile the Jekyll site, so Ruby is needed.
     docker:
       - image: circleci/ruby:2.5.1
     working_directory: ~/repo
