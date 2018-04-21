@@ -72,9 +72,15 @@ workflows:
   test:
     jobs:
       - test
+          filters:
+            branches:
+              ignore: gh-pages
   build-deploy:
     jobs:
       - build
+          filters:
+            branches:
+              ignore: gh-pages
       - deploy:
           requires:
             - build
