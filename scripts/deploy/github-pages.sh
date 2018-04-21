@@ -11,7 +11,7 @@ then
   git rm -rf .
   cd ..
 
-  cp -a _site/. out/.
+  cp -a _site/_site/. out/.
 
   mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
   cd out
